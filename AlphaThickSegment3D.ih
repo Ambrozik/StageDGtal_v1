@@ -1,0 +1,735 @@
+void D3DComputer(Line3D &l, const int &axis){
+    // XY-plane,XZ-plane
+    typedef DGtal::PointVector<3,double> Point3d;
+    l.intercept = std::vector<std::pair<double,double>>(3);
+    l.thickness = std::vector<std::pair<double,double>>(3);
+    if(axis ==0){
+        // mu <= b1 * x - a1 * y < mu + nu
+        // mu <= c1 * x - a2 * z < mu + nu
+        int a1 = *(l.line3D.first.D.begin()+1) ;
+        int b1 = *(l.line3D.first.D.begin());
+        int a2 = *(l.line3D.second.D.begin()+1) ;
+        int c1 = *(l.line3D.second.D.begin());
+        try{
+            if((abs(a1) == 0 && abs(a2)!= 0) ||(abs(a1) != 0 && abs(a2)== 0)){
+                throw std::string("a1 == 0 XOR a2 == 0 : ");
+
+            }
+        }catch(std::string const& chaine){
+            std::cerr << chaine << l.line3D.first.D<<" | " << l.line3D.second.D<< endl;
+            return;
+        }
+        l.intercept[0] = std::make_pair ( 0, 1 ); l.intercept[1] = std::make_pair ( -l.line3D.first.D[2], a1 ); l.intercept[2] = std::make_pair ( -l.line3D.second.D[2], a2 );
+        l.thickness[0] = std::make_pair ( 0, 1 ); l.thickness[1] = std::make_pair ( -(l.line3D.first.D[3] - 1), a1 ); l.thickness[2] = std::make_pair ( -(l.line3D.second.D[3]- 1), a2 );
+        if (abs(a1) == 0 && abs(a2) == 0 || a1 == a2 ){
+            // if a1 == 0 and a2 == 0 then, we don't need to modify the different elements of D.
+            l.D = DGtal::PointVector<7,double>{double(a1),
+                                               double(b1),
+                                               double(c1),
+                                               double(*(l.line3D.first.D.begin()+2)),
+                                               double(*(l.line3D.second.D.begin()+2)) ,
+                                               double(*(l.line3D.first.D.begin()+3)),
+                                               double(*(l.line3D.second.D.begin()+3))};
+        }
+        else{
+            //we compute new a,b and c
+            int  m = lcm(a1 ,a2);
+            int k1 = m/a1;
+            int k2 = m/a2;
+            Point3d v(double(m),
+                      double(k1 * b1),
+                      double(k2 * c1));
+
+            double nu1 = l.line3D.first.alphaSeg.getThickness() * std::max(abs(v[0]), abs(v[1])) + 1; // recompute nu
+            double nu2 = l.line3D.second.alphaSeg.getThickness() * std::max(abs(v[0]), abs(v[2])) + 1; // recompute nu_p
+            l.D = DGtal::PointVector<7,double>{static_cast<double>(v[0]),
+                                               static_cast<double>(v[1]),
+                                               static_cast<double>(v[2]),
+                                               double((k1 > 0) ? (*(l.line3D.first.D.begin()+2) * k1):(*(l.line3D.first.D.begin()+2) * k1 - (nu1 - 1))), // mu * a2
+                                               double((k2 > 0 ) ? (*(l.line3D.second.D.begin()+2) * k2) : (*(l.line3D.second.D.begin()+2) * k2 - (nu2 - 1) )), // mu * a1
+                                               nu1,
+                                               nu2};
+        }
+    }
+    //XY-plane, YZ-plane
+    // mu <= b1 * x - a1 * y < mu + nu
+    // mu <= c2 * y - b2 * z < mu + nu
+    if(axis ==1){
+        int a1 = *(l.line3D.first.D.begin()+1);
+        int b1 = *(l.line3D.first.D.begin());
+        int b2 = *(l.line3D.second.D.begin()+1) ;
+        int c2 = *(l.line3D.second.D.begin());
+        try {
+            if ((abs(b2) == 0 && abs(b1) != 0) || (abs(b1) != 0 && abs(b2) == 0)) {
+                throw std::string("b1 == 0XOR b2 == 0");
+            }
+        }catch(std::string const& chaine){
+            std::cerr << chaine << endl;
+        }
+        l.intercept[0] = std::make_pair ( l.line3D.first.D[2], b1 ) ; l.intercept[1] = std::make_pair ( 0, 1 ); l.intercept[2] = std::make_pair ( -l.line3D.second.D[2], b2 );
+        l.thickness[0] = std::make_pair ( l.line3D.first.D[3] - 1 , b1 );  l.thickness[1] =std::make_pair ( 0, 1 );  l.thickness[2] = std::make_pair ( -(l.line3D.second.D[3] - 1), b2 );
+
+        // if b1 == 0 and b2 == 0 then, we don't need to modify the different elements of D.
+        if(abs(b2) == 0 && abs(b1) ==0  || b2 == b1){
+            l.D = DGtal::PointVector<7,double>{double(a1),
+                                               double(b2),
+                                               double(c2),
+                                               double(*(l.line3D.second.D.begin()+2)),
+                                               double(*(l.line3D.first.D.begin()+2)),
+                                               double(*(l.line3D.second.D.begin()+3)),
+                                               double(*(l.line3D.first.D.begin()+3))};
+        }else{
+            int  m = lcm(b1 ,b2);
+            int k1 = m/b1;
+            int k2 = m/b2;
+            //we compute new a,b and c
+            Point3d v(double(k1 * a1),
+                      double(m),
+                      double(k2 * c2));
+            double nu1 = l.line3D.first.alphaSeg.getThickness() * std::max(abs(v[0]), abs(v[1])) + 1; // recompute nu
+            double nu2 = l.line3D.second.alphaSeg.getThickness() * std::max(abs(v[1]), abs(v[2])) + 1;// recompute nu_p
+            l.D = DGtal::PointVector<7,double>{static_cast<double>(v[0]),
+                                               static_cast<double>(v[1]),
+                                               static_cast<double>(v[2]),
+                                               double((k1 > 0) ? (*(l.line3D.first.D.begin()+2) * k1):(*(l.line3D.first.D.begin()+2) * k1 - (nu1 - 1))), // mu * b2
+                                               double((k2 > 0 ) ? (*(l.line3D.second.D.begin()+2) * k2) : (*(l.line3D.second.D.begin()+2) * k2 - (nu2 - 1) )), // mu * b1
+                                               nu1,
+                                               nu2};
+        }
+    }
+    //XZ-plane, YZ-plane
+    // mu <= c1 * x - a2 * z < mu + nu
+    // mu <= c2 * y - b2 * z < mu + nu
+    if(axis==2){
+        int a2 = *(l.line3D.first.D.begin()+1);
+        int c1 = *(l.line3D.first.D.begin());
+        int b2 = *(l.line3D.second.D.begin()+1) ;
+        int c2 = *(l.line3D.second.D.begin());
+
+        l.intercept[0] = std::make_pair ( l.line3D.first.D[2] , c1 ) ; l.intercept[1] = std::make_pair ( l.line3D.second.D[2], c2 );l.intercept[2] = std::make_pair ( 0, 1 );
+        l.thickness[0] = std::make_pair ( l.line3D.first.D[3] - 1 , c1 );  l.thickness[1] = std::make_pair ( l.line3D.second.D[3] - 1 , c2 ); l.thickness[2] =std::make_pair ( 0, 1 );
+        try{
+            if((abs(c2) == 0 && abs(c1)!= 0) ||(abs(c1) != 0 && abs(c2)== 0)){
+                throw std::string("c1 == 0 XOR c2 == 0");
+            }
+        }catch(std::string const& chaine){
+            std::cerr << chaine << l.line3D.first.D<<" | " << l.line3D.second.D<<" P :"<< l.extremity.first <<"\n"<< endl;
+        }
+        // if c1 == 0 and c2 == 0 then, we don't need to modify the different elements of D.
+        if(abs(c2) == 0 && abs(c1) == 0 || c1 == c2){
+            l.D = DGtal::PointVector<7,double>{double(a2),
+                                               double(b2),
+                                               double(c1),
+                                               double(*(l.line3D.first.D.begin()+2)),
+                                               double(*(l.line3D.second.D.begin()+2)),
+                                               double(*(l.line3D.first.D.begin()+3)),
+                                               double(*(l.line3D.second.D.begin()+3))};
+
+        }else{
+            int  m = lcm(c1 ,c2);
+            int k1 = m/c1;
+            int k2 = m/c2;
+            Point3d v(double(k1 * a2),
+                      double(k2 * b2),
+                      double(m));
+            double nu1 = l.line3D.first.alphaSeg.getThickness() * std::max(abs(v[0]), abs(v[2])) + 1; // recompute nu
+            double nu2 = l.line3D.second.alphaSeg.getThickness() * std::max(abs(v[1]), abs(v[2])) + 1; // recompute nu_p
+            l.D = DGtal::PointVector<7,double>{static_cast<double>(v[0]),
+                                               static_cast<double>(v[1]),
+                                               static_cast<double>(v[2]),
+                                               double((k1 > 0) ? (*(l.line3D.first.D.begin()+2) * k1):(*(l.line3D.first.D.begin()+2) * k1 - (nu1 - 1))), // mu * c2
+                                               double((k2 > 0 ) ? (*(l.line3D.second.D.begin()+2) * k2) : (*(l.line3D.second.D.begin()+2) * k2 - (nu2 - 1))), // mu * c1
+                                               nu1,
+                                               nu2};
+
+        }
+    }
+    l.direction =  DGtal::PointVector<3,double>(l.D[0],l.D[1],l.D[2]);
+}
+
+
+template<typename PointD, typename AlphaSegment>
+void computeSegmentDefinition (AlphaSegment &anSegment){
+    PointD N; // normal vector
+    double mu , nu;
+    anSegment.alphaSeg.computeParallelStripParams(mu,N,nu); // compute normal vector
+    double omega =  anSegment.alphaSeg.getThickness()* std::max(abs(N[0]), abs(-N[1])) + 1; // compute omega  w == nu (Euclidean thickness) * max(|a|,|b|) + 1
+    anSegment.D = DGtal::PointVector<4,double>(N[0],-N[1], mu ,omega);
+}
+
+
+template<typename Point2D, typename AlphaThickSegmentComputer2D>
+bool is_same_Point2D(const Point2D &p, AlphaThickSegmentComputer2D  alphaSegment){
+    return alphaSegment.getExtremityPoints().second==p;
+}
+
+
+//compute a line3D
+template<typename PointD, typename Point2D, typename  Point3D, typename AlphaThickSegmentComputer2D, typename List3DLine>
+Line3D computerALine(const CreatorAlphaThickSegment<Point2D,AlphaThickSegmentComputer2D>& creatorAlphaThickSegment, std::vector<Point3D> sequence,int start,  std::vector<List3DLine> &Oxyz ) {
+    typedef std::vector<Point>::iterator Iterator;
+    struct SegmentValid {
+        std::pair<AlphaThickSegmentComputer2D, AlphaThickSegmentComputer2D> lastSegment3Dvalid;
+        int indice = 0;
+    };
+
+
+    AlphaThickSegmentComputer2D alphaSegmentXY(creatorAlphaThickSegment.getThickNess(0)),
+            alphaSegmentXZ(creatorAlphaThickSegment.getThickNess(1)),
+            alphaSegmentYZ(creatorAlphaThickSegment.getThickNess(2));
+    AlphaThickSegmentComputer2D alphaSegmentXYCurrent(creatorAlphaThickSegment.getThickNess(0)),
+            alphaSegmentXZCurrent(creatorAlphaThickSegment.getThickNess(1)),
+            alphaSegmentYZCurrent(
+            creatorAlphaThickSegment.getThickNess(2)); // temporary alphasegment in order to compute extrimity values
+
+
+
+    Line3D l;
+    typename std::vector<Point3D>::const_iterator it = sequence.begin() + start; // init first point of this segment
+    alphaSegmentXY.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XY));  //init alphaSegmentXY
+    alphaSegmentXZ.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XZ));  //init alphaSegmentXZ
+    alphaSegmentYZ.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::YZ));  //init alphaSegmentYZ
+
+    // init set to check if there is not loop
+    std::unordered_set<Point2D> my_setXY, my_setXZ, my_setYZ;
+    //init vector with the last seg valid with indice
+    std::vector<SegmentValid> segmentValid(3);
+    my_setXY.insert(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XY));
+    my_setXZ.insert(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XZ));
+    my_setYZ.insert(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::YZ));
+    ///
+    std::vector<int> isEX = {1, 1, 1}; // boolean projection valid
+    int isExtendable = true; // bool if the projection of 2 plans is possible
+    int i = start + 1; // init second point
+    Point3D lastPointSeg3D(*it); //the last point of the AlphaThickSegment
+
+    it++; // we pass the first point already init
+    ///loop to calcule 2 AlphaSegmentThick2D
+    int nbProjectionValid = creatorAlphaThickSegment.getNbProjectionValid(); // number of valid projections depending on the selected mode
+    while (isExtendable && i < sequence.size()) {
+        if (isExtendable) {
+            if (isEX[0]) {
+                auto p = convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XY); //new 3D point converted to 2D according of the projection
+                auto notValidProjection = creatorAlphaThickSegment.SomeOperation(p, my_setXY, alphaSegmentXY);
+                if (notValidProjection || !alphaSegmentXY.isExtendableFront(p)) {
+                    isEX[0] = 0; // the new point creates a loop, we stop the projection of this axis
+                } else {
+                    Point2D endPoint = alphaSegmentXY.getExtremityPoints().first;
+                    alphaSegmentXYCurrent = alphaSegmentXY;
+                    auto lastSizeSegment = alphaSegmentXYCurrent.getSegmentLength();
+                    alphaSegmentXYCurrent.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XY));
+                    auto newSizeSegment = alphaSegmentXYCurrent.getSegmentLength();
+                    Point2D newEndPoint = alphaSegmentXYCurrent.getExtremityPoints().first;
+                    //check if the new point will not change the fisrt point extrimity
+                    if (!(endPoint == newEndPoint)) {
+                        isEX[0] = 0; //the new point changes the first extrimity point, we stop the projection of this axis
+                    }
+                    if (lastSizeSegment > newSizeSegment && my_setXY.size() != 1) {
+                        isEX[0] = 0;
+                    }
+                }
+            }
+            if (isEX[1]) {
+                auto p = convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XZ);
+                auto validProjection = creatorAlphaThickSegment.SomeOperation(p, my_setXZ, alphaSegmentXZ);
+                if (validProjection || !alphaSegmentXZ.isExtendableFront(p)) {
+                    isEX[1] = 0;
+                } else {
+                    Point2D endPoint = alphaSegmentXZ.getExtremityPoints().first;
+                    alphaSegmentXZCurrent = alphaSegmentXZ;
+                    auto lastSizeSegment = alphaSegmentXZCurrent.getSegmentLength();
+                    alphaSegmentXZCurrent.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XZ));
+                    auto newSizeSegment = alphaSegmentXZCurrent.getSegmentLength();
+                    Point2D newEndPoint = alphaSegmentXZCurrent.getExtremityPoints().first;
+                    if (endPoint != newEndPoint) {
+                        isEX[1] = 0;
+                    }
+                    if (lastSizeSegment > newSizeSegment && my_setXZ.size() != 1) {
+                        isEX[1] = 0;
+                    }
+                }
+
+            }
+            if (isEX[2]) {
+                auto p = convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::YZ);
+                auto validProjection = creatorAlphaThickSegment.SomeOperation(p, my_setYZ, alphaSegmentYZ);
+                if (validProjection || !alphaSegmentYZ.isExtendableFront(p)) {
+                    isEX[2] = 0;
+                } else {
+                    Point2D endPoint = alphaSegmentYZ.getExtremityPoints().first;
+                    alphaSegmentYZCurrent = alphaSegmentYZ;
+                    auto lastSizeSegment = alphaSegmentYZCurrent.getSegmentLength();
+                    alphaSegmentYZCurrent.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::YZ));
+                    auto newSizeSegment = alphaSegmentYZCurrent.getSegmentLength();
+                    Point2D newEndPoint = alphaSegmentYZCurrent.getExtremityPoints().first;
+                    if (endPoint != newEndPoint) {
+                        isEX[2] = 0;
+                    }
+                    if (lastSizeSegment > newSizeSegment && my_setYZ.size() != 1) {
+                        isEX[2] = 0;
+                    }
+                }
+            }
+        }
+
+        isExtendable = (isEX[0] + isEX[1] + isEX[2]) >=
+                       nbProjectionValid; //check if the point can be to project on at  least 2 plans
+        if (isExtendable) {
+            if (isEX[0] && isEX[1]) { //check XY - XZ
+                //if x != x_p then one of this 2 projection longer true
+                if (alphaSegmentXYCurrent.getExtremityPoints().second[0] !=
+                    alphaSegmentXZCurrent.getExtremityPoints().second[0]) {
+                    if (alphaSegmentXYCurrent.getExtremityPoints().second[0] != lastPointSeg3D[0]) {
+                        isEX[0] = 0; //the new point changes the second end point of the XY prjection, then is no longer valid, we stop the projection
+                    } else {
+                        isEX[1] = 0;
+                    }
+                }
+            }
+            if (isEX[0] && isEX[2]) { //check XY - YZ
+                if (alphaSegmentXYCurrent.getExtremityPoints().second[1] !=
+                    alphaSegmentYZCurrent.getExtremityPoints().second[0]) {
+                    if (alphaSegmentXYCurrent.getExtremityPoints().second[1] != lastPointSeg3D[1]) {
+                        isEX[0] = 0;
+                    } else {
+                        isEX[2] = 0;
+                    }
+                }
+            }
+            if (isEX[1] && isEX[2]) { //check XZ - YZ
+                if (alphaSegmentXZCurrent.getExtremityPoints().second[1] !=
+                    alphaSegmentYZCurrent.getExtremityPoints().second[1]) {
+                    if (alphaSegmentXZCurrent.getExtremityPoints().second[1] != lastPointSeg3D[2]) {
+                        isEX[1] = 0;
+                    } else {
+                        isEX[2] = 0;
+                    }
+                }
+            }
+        }
+        isExtendable = (isEX[0] + isEX[1] + isEX[2]) >=
+                       nbProjectionValid; //check if the point can be to project on at  least 2 plans
+        if (isExtendable) {
+            //we can add the new point of at least 2 projections
+            if (isEX[0]) {
+                if(!is_same_Point2D(convert3Dto2DAXIS<Point3D,Point2D>(*it,AXIS::XY),alphaSegmentXY)){
+                    alphaSegmentXY.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XY));
+                }
+                my_setXY.insert(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XY));
+            }
+            if (isEX[1]) {
+                if(!is_same_Point2D(convert3Dto2DAXIS<Point3D,Point2D>(*it,AXIS::XZ),alphaSegmentXZ)) {
+                    alphaSegmentXZ.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XZ));
+                }
+                my_setXZ.insert(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::XZ));
+            }
+            if (isEX[2]) {
+                if(!is_same_Point2D(convert3Dto2DAXIS<Point3D,Point2D>(*it,AXIS::YZ),alphaSegmentYZ)) {
+                    alphaSegmentYZ.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::YZ));
+                }
+                my_setYZ.insert(convert3Dto2DAXIS<Point3D, Point2D>(*it, AXIS::YZ));
+            }
+
+            //we create the new last point  of the segment 3D
+            if (isEX[0] + isEX[1] == 2) { //if XY && XZ || YZ
+                lastPointSeg3D = Point3D(alphaSegmentXY.getExtremityPoints().second[0],
+                                         alphaSegmentXY.getExtremityPoints().second[1],
+                                         alphaSegmentXZ.getExtremityPoints().second[1]);
+            }
+            else if (isEX[0] + isEX[2] == 2) { //if XY && !XZ && YZ
+                lastPointSeg3D = Point3D(alphaSegmentXY.getExtremityPoints().second[0],
+                                         alphaSegmentXY.getExtremityPoints().second[1],
+                                         alphaSegmentYZ.getExtremityPoints().second[1]);
+            }
+            else { //if !XY && XZ && YZ
+                lastPointSeg3D = Point3D(alphaSegmentXZ.getExtremityPoints().second[0],
+                                         alphaSegmentYZ.getExtremityPoints().second[0],
+                                         alphaSegmentYZ.getExtremityPoints().second[1]);
+            }
+
+            //we create the lastSegmentValid
+            if (isEX[0] + isEX[1] == 2) { // if XY and XZ plans is valid
+                double mu, nu;
+                PointD N1, N2;
+                alphaSegmentXY.computeParallelStripParams(mu, N1, nu); // compute normal vector
+                alphaSegmentXZ.computeParallelStripParams(mu, N2, nu); // compute normal vector
+                if (!(abs(N1[1]) == 0 || abs(N2[1]) == 0) && //check if  alphaSegmentXY.b() and alphaSegmentXZ.b() matches and the segment isn't degenerated case in a projection 2D
+                    my_setXY.size() > 1 && // check  if 2D segment on XY isnt a point
+                    my_setXZ.size() > 1) { // check  if 2D segment on XZ isnt a point
+                    segmentValid[0].lastSegment3Dvalid = std::make_pair(alphaSegmentXY, alphaSegmentXZ);
+                    segmentValid[0].indice = i;
+                }
+            }
+            if (isEX[0] + isEX[2] == 2) {
+                double mu, nu;
+                PointD N1, N2;
+                alphaSegmentXY.computeParallelStripParams(mu, N1, nu); // compute normal vector
+                alphaSegmentYZ.computeParallelStripParams(mu, N2, nu); // compute normal vector
+                if (!(abs(N1[0]) == 0 || abs(N2[1]) == 0) &&
+                    my_setXY.size() > 1 && my_setYZ.size() > 1) {
+                    segmentValid[1].lastSegment3Dvalid = std::make_pair(alphaSegmentXY, alphaSegmentYZ);
+                    segmentValid[1].indice = i;
+                }
+            }
+            if (isEX[1] + isEX[2] == 2) {
+                double mu, nu;
+                PointD N1, N2;
+                alphaSegmentXZ.computeParallelStripParams(mu, N1, nu); // compute normal vector
+                alphaSegmentYZ.computeParallelStripParams(mu, N2, nu); // compute normal vector
+                if (!(abs(N1[0]) == 0 || abs(N2[0]) == 0)&&
+                    my_setXZ.size() > 1 && my_setYZ.size() > 1) {
+                    segmentValid[2].lastSegment3Dvalid = std::make_pair(alphaSegmentXZ, alphaSegmentYZ);
+                    segmentValid[2].indice = i;
+                }
+            }
+            i++;
+            it++;
+        }
+    }
+    int indexLastPoint;
+    AlphaSegment a;
+    AlphaSegment b;
+    int indexAxis;
+    typename std::vector<Point3D>::const_iterator it_p = sequence.begin() + start;
+    l.extremity.first = *it_p;
+
+    if (creatorAlphaThickSegment.getNbProjectionValid() == 3) {
+        PointD NXY, NXZ, NYZ;  // normal vector
+        double mu, nu;
+        alphaSegmentXY.computeParallelStripParams(mu, NXY, nu); // compute normal vector
+        alphaSegmentXZ.computeParallelStripParams(mu, NXZ, nu); // compute normal vector
+        alphaSegmentYZ.computeParallelStripParams(mu, NYZ, nu); // compute normal vector
+        int valid[3] = {1, 1, 1};
+
+        /* if a1  == 0 or a2 == 0 then segment isn't valid */
+        if ((abs(NXY[1]) == 0 || abs(NXZ[1]) == 0)) {
+            valid[0] = 0;
+        }
+         /* if b1 ==0 or b2 == 0 then segment isn't valid */
+        if ((abs(NXY[0]) == 0 || abs(NYZ[1]) == 0)) {
+            valid[1] = 0;
+        }
+         /*if c1 == 0 or c2 == 0 then semgent isn't valid */
+        if ((abs(NXZ[0]) == 0 || abs(NYZ[0]) == 0)) {
+            valid[2] = 0;
+        }
+
+        /* we will calculate the different valid segments and take the largest duo as valid segment */
+        double SegmentVa[3] = { (alphaSegmentXY.getSegmentLength() + alphaSegmentXZ.getSegmentLength()) * valid[0],
+                             (alphaSegmentXY.getSegmentLength() + alphaSegmentYZ.getSegmentLength()) * valid[1],
+                             (alphaSegmentXZ.getSegmentLength() + alphaSegmentYZ.getSegmentLength()) * valid[2]};
+
+        indexLastPoint = i - 1 ; //index of the last point
+
+        //XY -XZ
+        if(SegmentVa[0] >= SegmentVa[1] && SegmentVa[0] >= SegmentVa[2]){
+            indexAxis = 0;
+            a.alphaSeg = segmentValid[0].lastSegment3Dvalid.first;
+            b.alphaSeg = segmentValid[0].lastSegment3Dvalid.second;
+            a.t = creatorAlphaThickSegment.getThickNess(0);
+            b.t = creatorAlphaThickSegment.getThickNess(1);
+            l.axes = std::make_pair(AXIS::XY, AXIS::XZ);
+        }
+        //XY-YZ
+        else if(SegmentVa[1] >= SegmentVa[0] && SegmentVa[1] >= SegmentVa[2]){
+            indexAxis = 1;
+            a.alphaSeg = segmentValid[1].lastSegment3Dvalid.first;
+            b.alphaSeg = segmentValid[1].lastSegment3Dvalid.second;
+            a.t = creatorAlphaThickSegment.getThickNess(0);
+            b.t = creatorAlphaThickSegment.getThickNess(2);
+            l.axes = std::make_pair(AXIS::XY, AXIS::YZ);
+        }
+        //XZ -YZ
+        else if(SegmentVa[2] >= SegmentVa[0] && SegmentVa[2] >= SegmentVa[1]){
+            indexAxis = 2;
+            a.alphaSeg = segmentValid[2].lastSegment3Dvalid.first;
+            b.alphaSeg = segmentValid[2].lastSegment3Dvalid.second;
+            a.t = creatorAlphaThickSegment.getThickNess(1);
+            b.t = creatorAlphaThickSegment.getThickNess(2);
+            l.axes = std::make_pair(AXIS::XZ, AXIS::YZ);
+        }
+        for(int i = start ; i <= indexLastPoint ; i++){
+            l.Points3D.push_back(*it_p);
+            it_p++;
+        }
+        l.extremity.second = lastPointSeg3D;
+    }
+    else {
+        //XY -XZ- YZ
+        if (segmentValid[0].indice == segmentValid[1].indice && segmentValid[0].indice  == segmentValid[2].indice) {
+            double SegmentVa[3] = {(segmentValid[0].lastSegment3Dvalid.first.getSegmentLength() +
+                                    segmentValid[0].lastSegment3Dvalid.second.getSegmentLength()),
+                                   (segmentValid[1].lastSegment3Dvalid.first.getSegmentLength() +
+                                    segmentValid[1].lastSegment3Dvalid.second.getSegmentLength()),
+                                   (segmentValid[2].lastSegment3Dvalid.first.getSegmentLength() +
+                                    segmentValid[2].lastSegment3Dvalid.second.getSegmentLength())};
+            indexLastPoint = segmentValid[0].indice;
+            if (SegmentVa[0] >= SegmentVa[1] && SegmentVa[0] >= SegmentVa[2]) {
+                indexAxis = 0;
+                a.alphaSeg = segmentValid[0].lastSegment3Dvalid.first;
+                b.alphaSeg = segmentValid[0].lastSegment3Dvalid.second;
+                a.t = creatorAlphaThickSegment.getThickNess(0);
+                b.t = creatorAlphaThickSegment.getThickNess(1);
+                l.axes = std::make_pair(AXIS::XY, AXIS::XZ);
+                l.extremity.second = Point3D(a.alphaSeg.getExtremityPoints().second[0],a.alphaSeg.getExtremityPoints().second[1], b.alphaSeg.getExtremityPoints().second[1]);
+            }
+                //XY-YZ
+            else if (SegmentVa[1] >= SegmentVa[0] && SegmentVa[1] >= SegmentVa[2]) {
+                indexAxis = 1;
+                a.alphaSeg = segmentValid[1].lastSegment3Dvalid.first;
+                b.alphaSeg = segmentValid[1].lastSegment3Dvalid.second;
+                a.t = creatorAlphaThickSegment.getThickNess(0);
+                b.t = creatorAlphaThickSegment.getThickNess(2);
+                l.axes = std::make_pair(AXIS::XY, AXIS::YZ);
+                l.extremity.second = Point3D(a.alphaSeg.getExtremityPoints().second[0],b.alphaSeg.getExtremityPoints().second[0], b.alphaSeg.getExtremityPoints().second[1]);
+            }
+                //XZ -YZ
+            else if (SegmentVa[2] >= SegmentVa[0] && SegmentVa[2] >= SegmentVa[1]) {
+                indexAxis = 2;
+                a.alphaSeg = segmentValid[2].lastSegment3Dvalid.first;
+                b.alphaSeg = segmentValid[2].lastSegment3Dvalid.second;
+                a.t = creatorAlphaThickSegment.getThickNess(1);
+                b.t = creatorAlphaThickSegment.getThickNess(2);
+                l.axes = std::make_pair(AXIS::XZ, AXIS::YZ);
+                l.extremity.second = Point3D(a.alphaSeg.getExtremityPoints().second[0],b.alphaSeg.getExtremityPoints().second[0], a.alphaSeg.getExtremityPoints().second[1]);
+            }
+            for (int i = start; i <= indexLastPoint; i++) {
+                l.Points3D.push_back(*it_p);
+                it_p++;
+            }
+        }
+        else {
+            //XY - XZ plans
+            if (segmentValid[0].indice >= segmentValid[1].indice && segmentValid[0].indice >= segmentValid[2].indice) {
+                indexAxis = 0;
+                indexLastPoint = segmentValid[0].indice;
+                a.alphaSeg = segmentValid[0].lastSegment3Dvalid.first;
+                b.alphaSeg = segmentValid[0].lastSegment3Dvalid.second;
+                a.t = creatorAlphaThickSegment.getThickNess(0);
+                b.t = creatorAlphaThickSegment.getThickNess(1);
+                l.axes = std::make_pair(AXIS::XY, AXIS::XZ);
+                l.extremity.second = Point3D(a.alphaSeg.getExtremityPoints().second[0],a.alphaSeg.getExtremityPoints().second[1], b.alphaSeg.getExtremityPoints().second[1]);
+
+            } //XY -YZ
+            else if (segmentValid[1].indice >= segmentValid[0].indice &&
+                     segmentValid[1].indice >= segmentValid[2].indice) {
+                indexAxis = 1;
+                indexLastPoint = segmentValid[1].indice;
+
+                a.alphaSeg = segmentValid[1].lastSegment3Dvalid.first;
+                b.alphaSeg = segmentValid[1].lastSegment3Dvalid.second;
+                a.t = creatorAlphaThickSegment.getThickNess(0);
+                b.t = creatorAlphaThickSegment.getThickNess(2);
+                l.axes = std::make_pair(AXIS::XY, AXIS::YZ);
+                l.extremity.second = Point3D(a.alphaSeg.getExtremityPoints().second[0],b.alphaSeg.getExtremityPoints().second[0], b.alphaSeg.getExtremityPoints().second[1]);
+
+            } //XZ - YZ
+            else {
+                indexAxis = 2;
+                indexLastPoint = segmentValid[2].indice;
+                a.alphaSeg = segmentValid[2].lastSegment3Dvalid.first;
+                b.alphaSeg = segmentValid[2].lastSegment3Dvalid.second;
+                a.t = creatorAlphaThickSegment.getThickNess(1);
+                b.t = creatorAlphaThickSegment.getThickNess(2);
+                l.axes = std::make_pair(AXIS::XZ, AXIS::YZ);
+                l.extremity.second = Point3D(a.alphaSeg.getExtremityPoints().second[0],b.alphaSeg.getExtremityPoints().second[0], a.alphaSeg.getExtremityPoints().second[1]);
+            }
+            for (int i = start; i <= indexLastPoint; i++) {
+                l.Points3D.push_back(*it_p);
+                it_p++;
+            }
+        }
+    }
+
+    computeSegmentDefinition<PointD, AlphaSegment>(a); // compute D(a,b,mu ,nu)
+    computeSegmentDefinition<PointD, AlphaSegment>(b); //compute D(a',b',mu',nu')
+    l.line3D = std::pair<AlphaSegment, AlphaSegment>(a, b); //create segment 3D
+    D3DComputer(l, indexAxis); // compute D(a,b,c,mu,mu',nu,nu')
+
+    l.indexA = indexAxis;
+    l.indexExtremity = std::make_pair(start,indexLastPoint);
+    Point3D s = l.extremity.second - l.extremity.first;
+    l.V[0] = abs(l.direction[0]);
+    l.V[1] = abs(l.direction[1]);
+    l.V[2] = abs(l.direction[2]);
+
+    l.V[0] = signbit(s[0]) ? -l.V[0] : l.V[0];
+    l.V[1] = signbit(s[1]) ? -l.V[1] : l.V[1];
+    l.V[2] = signbit(s[2]) ? -l.V[2] : l.V[2];
+
+    std::vector<double> t(3);
+
+    t[0] =(creatorAlphaThickSegment.getThickNess(0));
+    t[1] =(creatorAlphaThickSegment.getThickNess(1));
+    t[2] =(creatorAlphaThickSegment.getThickNess(2));
+
+    l.thickness3D = t;
+    l.len = sqrt(pow(l.extremity.second[0]- l.extremity.first[0],2) + pow(l.extremity.second[1]- l.extremity.first[1],2) + pow(l.extremity.second[2]- l.extremity.first[2],2));
+    Oxyz.at(indexAxis).push_back(l); //add segment point 3D
+    return l;
+}
+
+template<typename PointD,typename Point2D , typename  Point3D , typename AlphaThickSegmentComputer2D , typename List3DLine>
+List3DLine computerLine3D(const CreatorAlphaThickSegment<Point2D,AlphaThickSegmentComputer2D>& creatorAlphaThickSegment,std::vector<Point3D> sequence, std::vector<List3DLine> *Oxyz){
+    std::vector<List3DLine> Oxyz_current(3);
+    List3DLine l;
+    for(int i = 0 ; i < sequence.size()-1 ; i++) {
+        auto t = computerALine<PointD,Point2D,Point3D,AlphaThickSegmentComputer2D,List3DLine>(creatorAlphaThickSegment,sequence,i,Oxyz_current);
+        l.push_back(t);
+    }
+    *Oxyz = Oxyz_current;
+    return l;
+}
+
+
+template<typename PointD,typename Point2D , typename  Point3D , typename AlphaThickSegmentComputer2D , typename List3DLine>
+List3DLine tgtCoverLine(const CreatorAlphaThickSegment<Point2D,AlphaThickSegmentComputer2D>& creatorAlphaThickSegment,std::vector<Point3D> sequence){
+    std::vector<List3DLine> OxyzCurrent(3);
+    std::vector<List3DLine> Oxyz(3);
+    std::vector<Line3D> maxSegment;
+    std::unordered_map<Point3D,int> my_setXYZ;
+
+    //calculate all maximum segment
+    for(int i = 0 ; i < sequence.size()-1 ; i++) {
+        maxSegment.push_back(computerALine<PointD,Point2D,Point3D,AlphaThickSegmentComputer2D,List3DLine>(creatorAlphaThickSegment,sequence,i,OxyzCurrent));
+    }
+    std::vector<Line3D> tgtCoverLine;
+    tgtCoverLine.push_back(maxSegment.at(0));
+    int indexLastPoint = maxSegment.at(0).indexExtremity.second;
+    for(int i = 1 ; i < maxSegment.size(); i++){
+        if(maxSegment.at(i).indexExtremity.second <= indexLastPoint){}
+        else{
+            tgtCoverLine.push_back(maxSegment.at(i));
+            indexLastPoint = maxSegment.at(i).indexExtremity.second;
+        }
+    }
+    return tgtCoverLine;
+}
+
+
+/* compute a tangent cover */
+template<typename PointD,typename Point2D , typename  Point3D , typename AlphaThickSegmentComputer2D , typename List3DLine>
+List3DLine tgtCover(const CreatorAlphaThickSegment<Point2D,AlphaThickSegmentComputer2D>& creatorAlphaThickSegment,std::vector<Point3D> sequence,std::vector<List3DLine> &Oxyz ){
+    std::vector<List3DLine> OxyzCurrent(3);
+    std::vector<Line3D> maxSegment;
+    std::unordered_map<Point3D,int> my_setXYZ;
+
+    //calculate all maximum segment
+    for(int i = 0 ; i < sequence.size()-1 ; i++) {
+        maxSegment.push_back(computerALine<PointD,Point2D,Point3D,AlphaThickSegmentComputer2D,List3DLine>(creatorAlphaThickSegment,sequence,i,OxyzCurrent));
+    }
+    List3DLine tgtCoverLine;
+    tgtCoverLine.push_back(maxSegment.at(0));
+    int indexLastPoint = maxSegment.at(0).indexExtremity.second;
+    for(int i = 1 ; i < maxSegment.size(); i++){
+        if(maxSegment.at(i).indexExtremity.second <= indexLastPoint){}
+        else{
+            tgtCoverLine.push_back(maxSegment.at(i));
+            indexLastPoint = maxSegment.at(i).indexExtremity.second;
+        }
+    }
+
+    for(int i = 0 ; i < tgtCoverLine.size(); i++){
+        int idx = tgtCoverLine.at(i).indexA;
+        Oxyz[idx].push_back(tgtCoverLine.at(i));
+    }
+    return tgtCoverLine;
+
+}
+
+/* compute a greedySegmentation3D */
+template<typename PointD,typename Point2D , typename  Point3D , typename AlphaThickSegmentComputer2D , typename List3DLine>
+List3DLine greedyAlphaThickDecomposition(const CreatorAlphaThickSegment<Point2D,AlphaThickSegmentComputer2D>& creatorAlphaThickSegment,std::vector<Point3D> sequence, std::vector<Point3D> &Point3DExtremity,std::vector<List3DLine> &Oxyz){
+    List3DLine l ;
+    std::unordered_map<Point3D,int> my_setXYZ;
+    Point3DExtremity.push_back(sequence[0]); //first point of that segmentation
+    for(int i = 0 ; i < sequence.size() ; i++) {
+        auto t = my_setXYZ.find(sequence[i]);
+        if( t!=my_setXYZ.end()){
+            std::cout<<i<<std::endl;
+        }
+        my_setXYZ[sequence[i]] = i; //filling the points of the segment in a list allowing to find the end point
+    }
+    int i = 0 ; //index of the end point
+    Line3D lastPoint; //
+    while(i < my_setXYZ.size()-1){
+        lastPoint = computerALine<PointD,Point2D, Point3D, AlphaThickSegmentComputer2D, List3DLine>(creatorAlphaThickSegment,sequence, i, Oxyz); //compute line3D
+        l.push_back(lastPoint);
+        auto t = my_setXYZ.find(lastPoint.extremity.second);
+
+        Point3DExtremity.push_back(t->first); //save end point
+        i = (t->second); //index end point of the current segment
+    }
+    return l;
+}
+
+/*get axes */
+int getA(std::pair<AXIS,AXIS> a){
+    if(a.first == AXIS::XY && a.second == AXIS::XZ){
+        return 0;
+    }
+    if(a.first == AXIS::XY && a.second == AXIS::YZ){
+        return 1;
+    }
+    return 2;
+}
+
+/*init */
+template<typename Point3D,typename AlphaThickSegmentComputer2D>
+void init(Line3D *l ,std::pair<AXIS,AXIS> axes,DGtal::PointVector<7,double> D,  std::vector<double> thickness3D,std::vector<Point3D> points3D, std::pair<int,int> indexExtremity){
+    l->axes = axes;
+    l->D = D;
+    l->Points3D = points3D;
+    l->thickness3D = thickness3D;
+    l->indexA = getA(axes);
+    l->indexExtremity = indexExtremity;
+    AlphaSegment a;
+    AlphaSegment b;
+
+    if(l->indexA == 0){
+        AlphaThickSegmentComputer2D alphaSegment1(l->thickness3D[0]),
+        alphaSegment2(l->thickness3D[1]);
+        a.alphaSeg = alphaSegment1 ;
+        b.alphaSeg = alphaSegment2 ;
+        a.t = thickness3D.at(0);
+        b.t =thickness3D.at(1);
+    }
+    else if(l->indexA == 1){
+        AlphaThickSegmentComputer2D alphaSegment1(l->thickness3D[0]),
+        alphaSegment2(l->thickness3D[2]);
+        a.alphaSeg = alphaSegment1 ;
+        b.alphaSeg = alphaSegment2 ;
+        a.t = thickness3D.at(0);
+        b.t =thickness3D.at(2);
+    }
+    else{
+        AlphaThickSegmentComputer2D alphaSegment1(l->thickness3D[1]),
+        alphaSegment2(l->thickness3D[2]);
+        a.alphaSeg = alphaSegment1 ;
+        b.alphaSeg = alphaSegment2 ;
+        a.t = thickness3D.at(1);
+        b.t =thickness3D.at(2);
+    }
+
+    for(int i = 0 ; i < l->Points3D.size(); i++){
+        a.alphaSeg.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(l->Points3D.at(i), l->axes.first));
+        b.alphaSeg.extendFront(convert3Dto2DAXIS<Point3D, Point2D>(l->Points3D.at(i), l->axes.second));
+    }
+    computeSegmentDefinition<PointD,AlphaSegment>(a);
+    computeSegmentDefinition<PointD,AlphaSegment>(b);
+    l->line3D = std::make_pair(a,b);
+    l->extremity =std::make_pair(points3D[0], points3D[points3D.size()-1]);
+    Point3D s = l->extremity.second - l->extremity.first;
+    D3DComputer(*l,l->indexA);
+
+    l->direction =  DGtal::PointVector<3,double>(l->D[0],l->D[1],l->D[2]);
+    l->V[0] = abs(l->direction[0]);
+    l->V[1] = abs(l->direction[1]);
+    l->V[2] = abs(l->direction[2]);
+
+    l->V[0] = signbit(s[0]) ? -l->V[0] : l->V[0];
+    l->V[1] = signbit(s[1]) ? -l->V[1] : l->V[1];
+    l->V[2] = signbit(s[2]) ? -l->V[2] : l->V[2];
+    l->len = sqrt(pow(l->extremity.second[0]- l->extremity.first[0],2) + pow(l->extremity.second[1]- l->extremity.first[1],2) + pow(l->extremity.second[2]- l->extremity.first[2],2));
+
+}

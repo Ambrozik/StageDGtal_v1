@@ -1,0 +1,3 @@
+/home/ambrozik/CLionProjects/Stage/StageDGtal/AdaptiveTangentCover/build/CMakeFiles/edit_cache.dir
+/home/ambrozik/CLionProjects/Stage/StageDGtal/AdaptiveTangentCover/build/CMakeFiles/rebuild_cache.dir
+/home/ambrozik/CLionProjects/Stage/StageDGtal/AdaptiveTangentCover/build/CMakeFiles/ATC_Computation.dir

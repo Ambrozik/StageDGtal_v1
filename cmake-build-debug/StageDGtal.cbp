@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="StageDGtal"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Documents\;CMake Files\..\..\..\Documents\DGtal\;CMake Files\..\..\..\Documents\DGtal\build\;CMake Files\..\..\..\Documents\DGtal\build\Modules\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.71.0\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.71.0\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Xml\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_program_options-1.71.0\;CMake Files\..\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\..\usr\lib\cmake\eigen3\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="StageDGtal">
+				<Option output="/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/StageDGtal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DBOOST_ALL_NO_LIB"/>
+					<Add option="-DWITH_ITK"/>
+					<Add option="-DWITH_CAIRO"/>
+					<Add option="-DWITH_QT5"/>
+					<Add option="-DWITH_VISU3D_QGLVIEWER"/>
+					<Add option="-DWITH_EIGEN"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DDEBUG"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_OPENGL_LIB"/>
+					<Add option="-DQT_XML_LIB"/>
+					<Add option="-DBOOST_PROGRAM_OPTIONS_DYN_LINK"/>
+					<Add directory="/home/ambrozik/Documents/DGtal/src"/>
+					<Add directory="/home/ambrozik/Documents/DGtal/build/src"/>
+					<Add directory="/usr/local/include/ITK-5.1"/>
+					<Add directory="/usr/include/cairo"/>
+					<Add directory="/home/ambrozik/Documents/libQGLViewer-2.7.2"/>
+					<Add directory="/usr/local/include/ITK-5.1/Utilities"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtOpenGL"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtXml"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 StageDGtal"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="StageDGtal/fast">
+				<Option output="/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/StageDGtal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DBOOST_ALL_NO_LIB"/>
+					<Add option="-DWITH_ITK"/>
+					<Add option="-DWITH_CAIRO"/>
+					<Add option="-DWITH_QT5"/>
+					<Add option="-DWITH_VISU3D_QGLVIEWER"/>
+					<Add option="-DWITH_EIGEN"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DDEBUG"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_OPENGL_LIB"/>
+					<Add option="-DQT_XML_LIB"/>
+					<Add option="-DBOOST_PROGRAM_OPTIONS_DYN_LINK"/>
+					<Add directory="/home/ambrozik/Documents/DGtal/src"/>
+					<Add directory="/home/ambrozik/Documents/DGtal/build/src"/>
+					<Add directory="/usr/local/include/ITK-5.1"/>
+					<Add directory="/usr/include/cairo"/>
+					<Add directory="/home/ambrozik/Documents/libQGLViewer-2.7.2"/>
+					<Add directory="/usr/local/include/ITK-5.1/Utilities"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtOpenGL"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtXml"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 StageDGtal/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ambrozik/CLionProjects/Stage/StageDGtal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/AdaptiveTangentCover/ATC_Computation.cpp">
+			<Option target="StageDGtal"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/AdaptiveTangentCover/ATC_Computation.h">
+			<Option target="StageDGtal"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/AdaptiveTangentCover/functions.cpp">
+			<Option target="StageDGtal"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/AdaptiveTangentCover/functions.h">
+			<Option target="StageDGtal"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/main.cpp">
+			<Option target="StageDGtal"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../Documents/DGtal/build/DGtalConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Documents\DGtal\build\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../Documents/DGtal/build/DGtalConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Documents\DGtal\build\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../Documents/DGtal/build/DGtalLibraryDepends.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Documents\DGtal\build\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../Documents/DGtal/build/Modules/FindCairo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Documents\DGtal\build\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../Documents/DGtal/build/Modules/FindQGLVIEWER.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Documents\DGtal\build\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/BoostDetectToolset-1.71.0.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.71.0/boost_headers-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.71.0/boost_headers-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Xml\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Xml\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_program_options-1.71.0/boost_program_options-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_program_options-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_program_options-1.71.0/boost_program_options-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_program_options-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_program_options-1.71.0/libboost_program_options-variant-shared.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_program_options-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_program_options-1.71.0/libboost_program_options-variant-static.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_program_options-1.71.0\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/cmake/eigen3/Eigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\cmake\eigen3\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/cmake/eigen3/Eigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\cmake\eigen3\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/lib/cmake/eigen3/Eigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\cmake\eigen3\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/ITKConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/ITKConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/ITKModuleAPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/ITKTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/ITKTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKAntiAlias.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKBiasCorrection.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKBinaryMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKColormap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKConnectedComponents.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKConvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKCurvatureFlow.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDICOMParser.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDeconvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDeformableMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDenoising.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDiffusionTensorImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDisplacementField.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDistanceMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKDoubleConversion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKEigen.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKEigen3.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKExpat.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKFFT.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKFastMarching.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPUAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPUCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPUFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPUImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPUPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPURegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPUSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGPUThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKGoogleTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOBMP.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOBioRad.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOBruker.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOCSV.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOGE.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOGIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOImageBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOJPEG2000.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOLSM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMRC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeshBYU.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeshBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeshFreeSurfer.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeshGifti.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeshOBJ.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeshOFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeshVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOMeta.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIONIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIONRRD.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIORAW.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOSiemens.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOStimulate.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOTransformBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOTransformHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOTransformInsightLegacy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOTransformMatlab.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIOXML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageAdaptors.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageCompare.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageCompose.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageFeature.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageFrequency.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageFusion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageGradient.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageGrid.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageIntensity.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageLabel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageNoise.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageSources.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKImageStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKIntegratedTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKInternalEigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKInternalEigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKInternalEigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKKLMRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKKWIML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKKWSys.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKLIBLBFGS.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKLabelMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKLabelVoting.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKLevelSets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKLevelSetsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKMarkovRandomFieldsClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKMetaIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKMetricsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKNIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKNarrowBand.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKNetlib.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKNrrdIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKOpenJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKOptimizers.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKOptimizersv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKPath.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKPolynomials.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKQuadEdgeMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKQuadEdgeMeshFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKRegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKRegistrationMethodsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKReview.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKSignedDistanceFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKSpatialFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKSuperPixel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKTestKernel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKTransform.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKTransformFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKVNL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKVNLInstantiation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKVideoCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKVideoFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKVideoIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKVoronoi.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKWatersheds.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/ambrozik/CLionProjects/Stage/StageDGtal/../../../../../usr/local/lib/cmake/ITK-5.1/Modules/ITKZLIB.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\ITK-5.1\Modules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
